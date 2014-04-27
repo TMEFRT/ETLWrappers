@@ -1,0 +1,12 @@
+
+Below sample mysql, can be used to compute rolling sum or rank or similar type of problems.
+
+select n_long,event_date,connections
+from
+(
+  SELECT  n_long,event_date,event_id,
+          @conn := if(@n_long=n_long,@conn+event_id,) as connections,
+          @n_long := n_long
+          
+ from table_name  order by n_long,event_date 
+) A
