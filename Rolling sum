@@ -1,4 +1,8 @@
-Below sample mysql query, can be used as frame work to compute i.e. rolling sum, rank or similar type of problems.
+#Below sample mysql query, can be used as frame work to compute i.e. rolling sum, rank or similar type of problems.
+
+set @conn=0
+set #n_long=0
+
 
 select n_long,event_date,connections
 from
