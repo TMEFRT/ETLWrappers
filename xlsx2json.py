@@ -4,7 +4,7 @@ import simplejson as json
 
 
 # Open the workbook and select the first worksheet
-wb = xlrd.open_workbook('/Users/lalexander/Documen  ts/wm_items.xlsx')
+wb = xlrd.open_workbook('/Users/aa/Documen  ts/wm_items.xlsx')
 sh = wb.sheet_by_index(0)
 
 
@@ -21,7 +21,7 @@ for rownum in range(1, sh.nrows):
 
     row_values = sh.row_values(rownum)
 
-    file_name='/Users/lalexander/Documents/' + str(row_values[0]) + '.json'
+    file_name='/User/aa/Documents/' + str(row_values[0]) + '.json'
 
     for i in range(0,len(row_values)):
 
