@@ -27,7 +27,7 @@ month_days = (end_date - start_date).days + 1
 
 TEMP_FOLDER=os.getenv('TMP', '/tmp')
 
-SF_FILE_NAME = '/SF_EVENTS.txt'
+SF_FILE_NAME = '/date_file.txt'
 
 try:
 
