@@ -1,0 +1,14 @@
+create or replace view gn_dm.vw_flash_week as
+select 
+ day_date
+,week_end_date
+,week_start_date
+,week(DATE_ADD(day_date, INTERVAL -1 DAY)) week_nbr
+,DATE(DATE_ADD(day_date, INTERVAL -12 WEEK)) prior_12_week
+,DATE(DATE_ADD(day_date, INTERVAL -1 YEAR)) prior_year
+from gn_dm.d_date 
+where
+day_date > DATE(DATE_ADD(
+	(select DATE(DATE_ADD(day_date, INTERVAL - (day_num_in_week -1) DAY)) from gn_dm.d_date where day_date=current_Date), INTERVAL -12 WEEK)) 
+and day_date <= (select DATE(DATE_ADD(day_date, INTERVAL - (day_num_in_week -1) DAY)) from gn_dm.d_date where day_date=current_Date);
+
